@@ -1,4 +1,5 @@
 # The Binomial Method for Options Pricing
+> In progress
 
 ## Overview
 Options are **financial contracts** that give buyers the "option" to buy or sell (long or short) an underlying asset (stock) for a **specified price at a certain time in the future**.  
