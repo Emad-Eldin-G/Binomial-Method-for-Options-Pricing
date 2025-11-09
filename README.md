@@ -8,6 +8,29 @@ Options derive their price from the underlying asset, but it's not that simple. 
 
 This project explores the ***Binomial Method using the risk-neutal formula***, and will also demonstrate ***how the Binomial Method price converges to Black-Scholes*** as the number of steps in fixed physical time goes grows towards ∞.
 
+$$
+C_0 = e^{-rT} \, \mathbb{E}^*[C_T] = e^{-rT} \left[ p \, C_u + (1 - p) \, C_d \right]
+$$
+
+where  
+
+$$
+p = \frac{e^{r\Delta t} - d}{u - d}
+$$
+
+and  
+
+$$
+- \( $$C_0$$ \): current option price  
+- \( $$C_u$$ \): option value after an up move  
+- \( $$C_d$$ \): option value after a down move  
+- \( $$r$$ \): risk-free interest rate  
+- \( $$T$$ \): total time to maturity  
+- \( $$\Delta t \$$): length of one time step  
+- \( $$u$$, $$d$$ \): up and down factors  
+- \( $$p$$ \): risk-neutral probability
+$$
+
 ```mermaid
 graph LR
     A["S₀"]:::root
