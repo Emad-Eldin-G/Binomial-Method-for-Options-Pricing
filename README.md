@@ -20,7 +20,6 @@ $$
 
 and  
 
-$$
 - \( $$C_0$$ \): current option price  
 - \( $$C_u$$ \): option value after an up move  
 - \( $$C_d$$ \): option value after a down move  
@@ -29,7 +28,6 @@ $$
 - \( $$\Delta t \$$): length of one time step  
 - \( $$u$$, $$d$$ \): up and down factors  
 - \( $$p$$ \): risk-neutral probability
-$$
 
 ```mermaid
 graph LR
