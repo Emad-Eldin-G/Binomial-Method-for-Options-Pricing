@@ -1,12 +1,11 @@
-# The Binomial Method for Options Pricing
+# Backward Induction Binomial Method for Options Pricing
 > In progress
 
 ## Overview
-Options are **financial contracts** that give buyers the "option" to buy or sell (long or short) an underlying asset (stock) for a **specified price at a certain time in the future**.  
+An option is a contract giving the holder the right (but not the obligation) to buy (call) or sell (put) a specified quantity of the underlying asset at a predetermined price (the strike) on or before expiry.
 
-Options derive their price from the underlying asset, but it's not that simple. There are several ways to price options, each way incorporating different parameters.  
 
-This project explores the ***Binomial Method using the risk-neutal formula***, and will also demonstrate ***how the Binomial Method price converges to Black-Scholes*** as the number of steps in fixed physical time goes grows towards ∞.
+This project explores the ***Binomial Method using the risk-neutal formula***.   
 
 $$
 C_0 = e^{-rT} \ \mathbb{E}^*[C_T] = e^{-rT} \left[ p \ C_u + (1 - p) \ C_d \right]
@@ -28,6 +27,20 @@ and
 - \( $$\Delta t \$$): length of one time step  
 - \( $$u$$, $$d$$ \): up and down factors  
 - \( $$p$$ \): risk-neutral probability
+
+
+The idea behind the risk-neutral formula is that it aims to create a no-arbitrage market, where all assets are priced “correctly” relative to one another. This is important as any arbitrage (inconsistency in pricing) creates guaranteed profit opportunities that will be exploited, so the price must prevent that.  
+
+It is important to note that the formula above is what we call a “one-step” model. For $$N$$ steps, we will perform “backward induction” to find our option price ($$C_0$$) by working backward from step $$N$$ to step 0. The following visualizes how backward induction looks like as a binomial sum formula.
+
+$$
+C_0=e^{-rT}\sum_{k=0}^{N}\binom{N}{k}\left(p^\ast\right)^k\left(1-p^\ast\right)^{N-k} C\left(S_0u^kd^{N-k}\right)!
+$$
+
+Although there is a direct formula to compute the option price, it has several drawbacks. Think of a 64-bit computer, the maximum unsigned integer it can hold $$2^{64}\ -\ 1$$ is 18,446,744,073,709,551,615, or $$1.84\ \times\ {10}^{19}$$. In the formula, we use binomial coefficients in $$\binom{N}{k}$$, where the numbers become astronomically large as $$N$$ increases. For example: $$\binom{500}{250} = 3\times{10}^{149}$$, which is a $$130$$ orders of magnitude larger than $$1.84\ \times\ {10}^{19}$$.  
+
+Hence, it's computationally more efficient and more numerically stable to iteratively apply the “one-step” model at each step from $$N$$ to $$0$$, building backwards. This project will implement the backward induction binomial algorithm using Python Dynamic Programming, Python NumPy Vectorization, and C++.
+
 
 ```mermaid
 graph LR
