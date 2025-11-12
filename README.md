@@ -9,7 +9,7 @@ Options derive their price from the underlying asset, but it's not that simple. 
 This project explores the ***Binomial Method using the risk-neutal formula***, and will also demonstrate ***how the Binomial Method price converges to Black-Scholes*** as the number of steps in fixed physical time goes grows towards ∞.
 
 $$
-C_0 = e^{-rT} \, \mathbb{E}^*[C_T] = e^{-rT} \left[ p \, C_u + (1 - p) \, C_d \right]
+C_0 = e^{-rT} \ \mathbb{E}^*[C_T] = e^{-rT} \left[ p \, C_u + (1 - p) \, C_d \right]
 $$
 
 where  
