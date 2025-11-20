@@ -5,7 +5,7 @@
 An option is a contract giving the holder the right (but not the obligation) to buy (call) or sell (put) a specified quantity of the underlying asset at a predetermined price (the strike) on or before expiry.
 
 
-This project explores the ***Binomial Method using the risk-neutal formula***.   
+This project explores the ***Cox, Ross and Rubinstein Binomial Method for options pricing***.   
 
 $$
 C_0 = e^{-rT} \ \mathbb{E}^*[C_T] = e^{-rT} \left[ p \ C_u + (1 - p) \ C_d \right]
